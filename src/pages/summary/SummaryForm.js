@@ -1,12 +1,36 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+
+// const Example = () => (
+//   <OverlayTrigger trigger='click' placement='right' overlay={popover}>
+//     <Button variant='success'>Click me to see</Button>
+//   </OverlayTrigger>
+// );
+
+// render(<Example />);
+
 export default function SummatForm() {
   const [tuChecked, setTcChecked] = useState(false);
 
+  const popover = (
+    <Popover id='popover-basic'>
+      <Popover.Body>no ice cream will actually be delivered</Popover.Body>
+    </Popover>
+  );
+  // const Example = () => (
+  //   <OverlayTrigger trigger='click' placement='right' overlay={popover}>
+  //     <Button variant='success'>Click me to see</Button>
+  //   </OverlayTrigger>
+  // );
+
   const checkBoxLable = (
-    <span>
-      I agree to <span style={{ color: 'blue' }}>terms and conditions</span>
-    </span>
+    <OverlayTrigger placement='right' overlay={popover}>
+      <span>
+        I agree to <span style={{ color: 'blue' }}>terms and conditions</span>
+      </span>
+    </OverlayTrigger>
   );
 
   return (
@@ -19,7 +43,7 @@ export default function SummatForm() {
         ></Form.Check>
       </Form.Group>
       <Button variant={'primary'} type='submit' disabled={!tuChecked}>
-        Confirm order
+        confirm order
       </Button>
     </Form>
   );
