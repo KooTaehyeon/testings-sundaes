@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-
 // const Example = () => (
 //   <OverlayTrigger trigger='click' placement='right' overlay={popover}>
 //     <Button variant='success'>Click me to see</Button>
@@ -19,19 +18,19 @@ export default function SummatForm() {
       <Popover.Body>no ice cream will actually be delivered</Popover.Body>
     </Popover>
   );
+  const checkBoxLable = (
+    <span>
+      I agree to
+      <OverlayTrigger placement='right' overlay={popover}>
+        <span style={{ color: 'blue' }}>Terms and Conditions</span>
+      </OverlayTrigger>
+    </span>
+  );
   // const Example = () => (
   //   <OverlayTrigger trigger='click' placement='right' overlay={popover}>
   //     <Button variant='success'>Click me to see</Button>
   //   </OverlayTrigger>
   // );
-
-  const checkBoxLable = (
-    <OverlayTrigger placement='right' overlay={popover}>
-      <span>
-        I agree to <span style={{ color: 'blue' }}>terms and conditions</span>
-      </span>
-    </OverlayTrigger>
-  );
 
   return (
     <Form>
