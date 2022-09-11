@@ -8,8 +8,11 @@ const Options = ({ optionType }) => {
     axios
       .get(`http://localhost:3030/${optionType}`)
       .then((response) => setItems(response.data))
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   }, [optionType]);
+  console.log(items);
   const ItemComponent = optionType === 'scoops' ? ScoopOption : null;
 
   const optionItems = items.map((item) => (
